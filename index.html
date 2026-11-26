@@ -291,8 +291,8 @@
        Без даты (или когда она прошла) — «набор на сезон · места ограничены». -->
   <p class="urgent">
     <span class="dot" aria-hidden="true"></span>
-    <span data-when-timer="on" hidden><span data-bind="dMax">20%</span> chegirma tugashiga <b class="t" role="timer" data-timer></b> qoldi</span>
-    <span data-when-timer="off"><span data-bind="qabul">«Qorbo‘ron» mavsumiga qabul</span> · joylar cheklangan</span>
+    <span data-when-offer="on" hidden><span data-bind="dMax">20%</span> chegirma tugashiga <b class="t" role="timer" data-timer></b> qoldi</span>
+    <span data-when-offer="off"><span data-bind="qabul">«Qorbo‘ron» mavsumiga qabul</span> · joylar cheklangan</span>
   </p>
 
   <main class="page">
@@ -301,7 +301,7 @@
         <span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6.5v11l9-5.5z"/></svg></span>
         <span class="brand-text"><b>Yosh Blogerlar Akademiyasi</b><small>Bolalar uchun offlayn kurs · Farg‘ona</small></span>
       </div>
-      <span class="disc" data-bind="dMinus">−20%</span>
+      <span class="disc" data-bind="dMinus" data-when-offer="on">−20%</span>
     </header>
 
     <section class="hero" aria-labelledby="t-hero">
@@ -313,14 +313,14 @@
         <div id="form-view">
           <div class="offer-top" data-row="narx">
             <div>
-              <span class="offer-k">Birinchi oy, bron bilan</span>
-              <div class="offer-price"><strong data-bind="narxMax">480 000 so‘m</strong><s data-bind="narx">600 000 so‘m</s></div>
+              <span class="offer-k" data-bind="narxLabel">Birinchi oy, bron bilan</span>
+              <div class="offer-price"><strong data-bind="narxShown">480 000 so‘m</strong><s data-bind="narx" data-when-offer="on">600 000 so‘m</s></div>
             </div>
-            <span class="pill-green" data-bind="dMinus">−20%</span>
+            <span class="pill-green" data-bind="dMinus" data-when-offer="on">−20%</span>
           </div>
           <div class="hot">
             <p data-row="joylar"><svg class="i"><use href="#i-users"/></svg><b data-bind="joylar">Guruhda atigi 10 ta joy</b></p>
-            <p><svg class="i"><use href="#i-clock"/></svg><span data-bind="muddat">Chegirma faqat mavsum boshlanguncha</span></p>
+            <p data-row="muddat"><svg class="i"><use href="#i-clock"/></svg><span data-bind="muddat">Chegirma faqat 1-dekabrgacha</span></p>
           </div>
           <form id="bron-form" novalidate onsubmit="return false">
             <label class="field-label" for="phone">Telefon raqamingiz</label>
@@ -330,7 +330,7 @@
             </div>
             <input type="text" id="hp" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
             <p id="form-error" class="error" role="alert" hidden></p>
-            <button type="submit" class="btn-main" id="btn-bron"><span class="spinner" hidden></span><span>Joyni band qilish</span><span class="gain" data-bind="dMinus">−20%</span></button>
+            <button type="submit" class="btn-main" id="btn-bron"><span class="spinner" hidden></span><span>Joyni band qilish</span><span class="gain" data-bind="dMinus" data-when-offer="on">−20%</span></button>
             <p class="fine"><svg class="i"><use href="#i-lock"/></svg><span><span data-when="no-payme">Hozir to‘lov shart emas. </span>Menejer qo‘ng‘iroq qilib, guruh vaqtini aytadi.</span></p>
           </form>
           <noscript><p class="error">Joy band qilish uchun brauzerda JavaScript yoqilgan bo‘lishi kerak.</p></noscript>
@@ -341,12 +341,12 @@
             <span class="done-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
             <div>
               <h2 id="t-done" class="done-title">Joy band qilindi</h2>
-              <p class="done-sub">Chegirmangiz — <b data-bind="dMax">20%</b>, birinchi oy uchun</p>
+              <p class="done-sub"><span data-when-mine="on">Chegirmangiz — <b data-bind="dMy">20%</b>, birinchi oy uchun</span><span data-when-mine="off" hidden>Joyingiz saqlab qo‘yildi</span></p>
             </div>
           </div>
           <div class="ticket">
             <div><span>Bron raqami</span><b class="code" data-bind="code"></b></div>
-            <div data-row="narx"><span>Birinchi oy</span><b data-bind="narxMax"></b></div>
+            <div data-row="narx"><span data-bind="narxMyLabel">Birinchi oy</span><b data-bind="narxMy"></b></div>
             <div class="wide"><span>Telefon</span><b data-bind="phone"></b></div>
           </div>
           <p class="done-line"><svg class="i"><use href="#i-phone"/></svg><span><b>Menejer qo‘ng‘iroq qiladi</b> — ish vaqtida: <span data-bind="ishVaqti"></span>. Guruh vaqti va to‘lovni tasdiqlaydi.</span></p>
@@ -406,26 +406,26 @@
 
       <h2>Qanday boshlanadi</h2>
       <ol class="list numbered">
-        <li><div><b>Raqamingizni qoldirasiz</b><span class="sub">joy band bo‘ladi, birinchi oyga <span data-bind="dMax">20%</span> chegirma<span data-when="no-payme">. Hozir to‘lov shart emas</span></span></div></li>
+        <li><div><b>Raqamingizni qoldirasiz</b><span class="sub">joy band bo‘ladi<span data-when-offer="on">, birinchi oyga <span data-bind="dMax">20%</span> chegirma</span><span data-when="no-payme">. Hozir to‘lov shart emas</span></span></div></li>
         <li><div><b>Menejer qo‘ng‘iroq qiladi</b><span class="sub">guruh vaqtini tasdiqlaydi va to‘lovni kelishib oladi</span></div></li>
       </ol>
 
       <h2>Savollar</h2>
       <div class="list faq">
         <details><summary>Farzandim uyatchan. Uddalay oladimi?</summary><p>Kurs aynan nutq va o‘ziga ishonch mashqlaridan boshlanadi. Birinchi uchrashuvda farzandingiz bilan tanishamiz — uning imkoniyatini o‘zingiz ko‘rasiz.</p></details>
-        <details><summary>Turmush o‘rtog‘im bilan maslahatlashishim kerak</summary><p>Albatta. Joyni band qilsangiz, chegirma saqlanib turadi. Birinchi uchrashuvga ikkalangiz birga kelishingiz mumkin.</p></details>
+        <details><summary>Turmush o‘rtog‘im bilan maslahatlashishim kerak</summary><p>Albatta. Joyni band qilsangiz, <span data-when-offer="on">chegirma</span><span data-when-offer="off" hidden>joy</span> saqlanib turadi. Birinchi uchrashuvga ikkalangiz birga kelishingiz mumkin.</p></details>
         <details><summary>Dars vaqti to‘g‘ri kelmasa-chi?</summary><p>Menejer qo‘ng‘iroq qilganda qulay kun va vaqtni ayting — mos variant bor-yo‘qligini birga ko‘rib chiqamiz.</p></details>
         <details><summary>Bron qilish majburiyatmi?</summary>
-          <p data-when="no-payme">Yo‘q. Bron — joy va chegirmani saqlab qo‘yish. To‘lov menejer bilan gaplashgandan keyin.</p>
-          <p data-when="payme" hidden>Bron — joy va chegirmani saqlab qo‘yish. Xohlasangiz, <span data-bind="paymeSum">100 000 so‘m</span> to‘lab joyni kafolatlashingiz mumkin — bu summa birinchi oy to‘lovidan ayiriladi.</p>
+          <p data-when="no-payme">Yo‘q. Bron — <span data-when-offer="on">joy va chegirmani</span><span data-when-offer="off" hidden>joyni</span> saqlab qo‘yish. To‘lov menejer bilan gaplashgandan keyin.</p>
+          <p data-when="payme" hidden>Bron — <span data-when-offer="on">joy va chegirmani</span><span data-when-offer="off" hidden>joyni</span> saqlab qo‘yish. Xohlasangiz, <span data-bind="paymeSum">100 000 so‘m</span> to‘lab joyni kafolatlashingiz mumkin — bu summa birinchi oy to‘lovidan ayiriladi.</p>
         </details>
       </div>
 
       <div class="final" id="final">
         <h2>Joylar cheklangan</h2>
-        <p><span data-bind="qabul">«Qorbo‘ron» mavsumiga qabul</span>. Raqamingizni qoldiring — <span data-bind="dMax">20%</span> chegirma saqlanib turadi.</p>
-        <p class="final-timer" data-when-timer="on" hidden>Chegirma tugashiga <b class="t" data-timer></b> qoldi</p>
-        <button type="button" class="btn-main" data-go="bron"><span>Joyni band qilish</span><span class="gain" data-bind="dMinus">−20%</span></button>
+        <p><span data-bind="qabul">«Qorbo‘ron» mavsumiga qabul</span>. Raqamingizni qoldiring — <span data-when-offer="on"><span data-bind="dMax">20%</span> chegirma</span><span data-when-offer="off" hidden>joyingiz</span> saqlanib turadi.</p>
+        <p class="final-timer" data-when-offer="on" hidden>Chegirma tugashiga <b class="t" data-timer></b> qoldi</p>
+        <button type="button" class="btn-main" data-go="bron"><span>Joyni band qilish</span><span class="gain" data-bind="dMinus" data-when-offer="on">−20%</span></button>
       </div>
     </section>
 
@@ -435,16 +435,16 @@
   <div class="bar" id="cta" hidden>
     <p class="bar-note">
       <span class="dot" aria-hidden="true"></span>
-      <span data-when-timer="on" hidden>Chegirma tugashiga <b class="t" data-timer></b> qoldi</span>
-      <span data-when-timer="off" data-bind="barOff">Guruhda atigi 10 ta joy · chegirma 20%</span>
+      <span data-when-offer="on" hidden>Chegirma tugashiga <b class="t" data-timer></b> qoldi</span>
+      <span data-when-offer="off" data-bind="barOff">Guruhda atigi 10 ta joy · chegirma 20%</span>
     </p>
-    <button type="button" class="btn-main" data-go="bron"><span>Joyni band qilish</span><span class="gain" data-bind="dMinus">−20%</span></button>
+    <button type="button" class="btn-main" data-go="bron"><span>Joyni band qilish</span><span class="gain" data-bind="dMinus" data-when-offer="on">−20%</span></button>
   </div>
 
   <p id="live" class="sr-only" aria-live="polite"></p>
 
   <!-- ?v= меняйте при каждом изменении config.js, чтобы у родителей не осталась старая версия из кэша -->
-  <script src="config.js?v=8"></script>
+  <script src="config.js?v=9"></script>
   <script>
   /* Yosh Blogerlar Akademiyasi — bron sahifasi. Обычный JavaScript без библиотек.
      Одна страница: родитель оставляет только номер (возраст — по желанию, уже после брони). */
@@ -452,9 +452,6 @@
     'use strict';
 
     const C = window.SAYT_CONFIG || {};
-    // Скидка за бронь: config.chegirma; для старых настроек — последнее число из config.chegirmalar.
-    const OLD = Array.isArray(C.chegirmalar) ? C.chegirmalar.map(Number).filter((n) => n > 0) : [];
-    const MAX = Number(C.chegirma) || (OLD.length ? OLD[OLD.length - 1] : 20);
     const AGES = (Array.isArray(C.yoshlar) && C.yoshlar.length) ? C.yoshlar.map(String) : ['6–8', '9–11', '12–14', '15+'];
     const KEY = 'yba-sayt-bron:v2'; // ключ прошлой версии: кто уже забронировал, увидит свою бронь
     const DEMO = Boolean(C.demo) || !C.endpoint;
@@ -475,7 +472,8 @@
     }
     let saved = {};
     try { saved = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { saved = {}; }
-    const state = { phone: '', age: '', code: '', sid: '', utm: {}, booked: false, paid: false };
+    // foiz — скидка, с которой родитель забронировал (у броней до этой версии её нет — тогда 20%).
+    const state = { phone: '', age: '', code: '', sid: '', utm: {}, booked: false, paid: false, foiz: null };
     Object.keys(state).forEach((k) => { if (saved[k] != null) state[k] = saved[k]; });
     if (!state.sid) state.sid = randomId(18);
     const save = () => {
@@ -504,7 +502,7 @@
     const fmt = (n) => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
     const som = (n) => fmt(n) + ' so‘m';
     const narx = Number(C.narx) || 0;
-    const narxMax = Math.round(narx * (100 - MAX) / 100 / 1000) * 1000;
+    const withDisc = (p) => Math.round(narx * (100 - p) / 100 / 1000) * 1000; // цена первого месяца со скидкой p%
     const phoneDigits = (v) => {
       let d = String(v || '').replace(/\D/g, '');
       if (d.length > 9 && d.indexOf('998') === 0) d = d.slice(3);
@@ -515,22 +513,43 @@
     const groupSize = (String(C.guruh || '').match(/\d+/) || [''])[0]; // «10 nafargacha bola» → 10
     const freeSeats = Math.floor(Number(C.qolganJoy) || 0); // реальное число свободных мест; 0 — не показываем
 
-    // ---------- Таймер скидки: до настоящей даты из config.chegirmaGacha (00:00 по Ташкенту, UTC+5) ----------
+    // ---------- Скидки по датам (config.aksiyalar): действует первая, чья дата ещё не наступила ----------
+    // Дата — 'ГГГГ-ММ-ДД' (полночь по Ташкенту, UTC+5) или 'ГГГГ-ММ-ДД ЧЧ:ММ'. Таймер считает до неё,
+    // в этот момент страница сама переходит к следующей скидке, а после последней — к цене без скидки.
     const MONTHS = ['yanvar', 'fevral', 'mart', 'aprel', 'may', 'iyun', 'iyul', 'avgust', 'sentabr', 'oktabr', 'noyabr', 'dekabr'];
-    const deadline = (() => {
-      const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(C.chegirmaGacha || '').trim());
-      if (!m || +m[2] < 1 || +m[2] > 12) return null;
-      return { at: Date.UTC(+m[1], +m[2] - 1, +m[3]) - 5 * 3600 * 1000, label: (+m[3]) + '-' + MONTHS[+m[2] - 1] + 'gacha' };
-    })();
     const pad2 = (n) => (n < 10 ? '0' : '') + n;
+    function parseUntil(raw) {
+      const m = /^(\d{4})-(\d{2})-(\d{2})(?:[ T](\d{2}):(\d{2}))?$/.exec(String(raw || '').trim());
+      if (!m || +m[2] < 1 || +m[2] > 12) return null;
+      const hh = +(m[4] || 0);
+      const mm = +(m[5] || 0);
+      const day = (+m[3]) + '-' + MONTHS[+m[2] - 1];
+      return {
+        at: Date.UTC(+m[1], +m[2] - 1, +m[3], hh, mm) - 5 * 3600 * 1000,
+        label: (hh || mm) ? day + ' soat ' + pad2(hh) + ':' + pad2(mm) + ' gacha' : day + 'gacha',
+      };
+    }
+    // Старые настройки (chegirma + chegirmaGacha) тоже понимаем — как одну скидку.
+    const OFFERS = (Array.isArray(C.aksiyalar) ? C.aksiyalar : [{ chegirma: C.chegirma, gacha: C.chegirmaGacha }])
+      .map((o) => {
+        const until = parseUntil(o && o.gacha);
+        const foiz = Math.round(Number(o && o.chegirma) || 0);
+        return until && foiz > 0 && foiz < 100 ? { at: until.at, label: until.label, foiz: foiz } : null;
+      })
+      .filter(Boolean)
+      .sort((a, b) => a.at - b.at);
+    const findOffer = () => {
+      const now = Date.now();
+      return OFFERS.filter((o) => o.at > now)[0] || null;
+    };
+    let offer = findOffer(); // null — скидки сейчас нет: цена без скидки, таймера нет
     function timeLeft() {
-      const ms = deadline ? deadline.at - Date.now() : 0;
+      const ms = offer ? offer.at - Date.now() : 0;
       if (ms <= 0) return '';
       const s = Math.floor(ms / 1000);
       const days = Math.floor(s / 86400);
       return (days ? days + ' kun ' : '') + pad2(Math.floor(s % 86400 / 3600)) + ':' + pad2(Math.floor(s % 3600 / 60)) + ':' + pad2(s % 60);
     }
-    let timerOn = Boolean(timeLeft());
 
     // Ближайший сезон курса: по дате через 2 недели (в конце сезона уже показываем следующий).
     // Зима — декабрь–февраль, весна — март–май, лето — июнь–август, осень — сентябрь–ноябрь.
@@ -543,9 +562,14 @@
 
     function bindAll() {
       const joylar = freeSeats > 0 ? 'Qoldi atigi ' + freeSeats + ' ta joy' : (groupSize ? 'Guruhda atigi ' + groupSize + ' ta joy' : '');
+      const p = offer ? offer.foiz : 0; // скидка сейчас
+      const mine = state.booked ? (state.foiz == null ? 20 : Number(state.foiz) || 0) : p; // скидка в брони родителя
       const values = {
         narx: narx ? som(narx) : '',
-        narxMax: narx ? som(narxMax) : '',
+        narxShown: narx ? som(p ? withDisc(p) : narx) : '',
+        narxLabel: p ? 'Birinchi oy, bron bilan' : 'Oyiga',
+        narxMy: narx ? som(mine ? withDisc(mine) : narx) : '',
+        narxMyLabel: mine ? 'Birinchi oy' : 'Oyiga',
         joy: C.joy || '',
         jadval: C.jadval || '',
         davomiylik: C.davomiylik || '',
@@ -553,16 +577,17 @@
         yosh: C.yosh || '',
         ishVaqti: C.ishVaqti || '',
         manzil: C.manzil || '',
-        dMax: MAX + '%',
-        dMinus: '−' + MAX + '%',
+        dMax: p + '%',
+        dMinus: '−' + p + '%',
+        dMy: mine + '%',
         paymeSum: som(PAYME_SUM),
         phone: state.phone ? '+998 ' + phoneFmt(state.phone) : '',
         code: state.code ? '№ ' + state.code : '',
         mavsumFasl: season.name ? '«' + season.name + '» · ' + season.key : '',
         qabul: season.name ? '«' + season.name + '» mavsumiga qabul' : 'Yangi mavsumga qabul',
         joylar: joylar,
-        muddat: timerOn ? 'Chegirma faqat ' + deadline.label : 'Chegirma faqat mavsum boshlanguncha',
-        barOff: (joylar ? joylar + ' · ' : '') + 'chegirma ' + MAX + '%',
+        muddat: offer ? 'Chegirma faqat ' + offer.label : '',
+        barOff: joylar || 'Joylar cheklangan',
       };
       $$('[data-bind]').forEach((el) => {
         const v = values[el.dataset.bind];
@@ -570,7 +595,8 @@
       });
       $$('[data-row]').forEach((el) => { el.hidden = !values[el.dataset.row]; });
       $$('[data-when]').forEach((el) => { el.hidden = (el.dataset.when === 'payme') !== PAYME; });
-      $$('[data-when-timer]').forEach((el) => { el.hidden = (el.dataset.whenTimer === 'on') !== timerOn; });
+      $$('[data-when-offer]').forEach((el) => { el.hidden = (el.dataset.whenOffer === 'on') !== Boolean(offer); });
+      $$('[data-when-mine]').forEach((el) => { el.hidden = (el.dataset.whenMine === 'on') !== Boolean(mine); });
       const map = $('#map-link');
       map.hidden = !C.xarita;
       if (C.xarita) map.href = C.xarita;
@@ -592,7 +618,7 @@
       bronBtn.disabled = on;
       bronBtn.setAttribute('aria-busy', on ? 'true' : 'false');
       $('.spinner', bronBtn).hidden = !on;
-      $('.gain', bronBtn).hidden = on;
+      $('.gain', bronBtn).hidden = on || !offer;
     }
     function showError(msg) {
       formErr.textContent = msg;
@@ -636,9 +662,10 @@
       save();
       setBusy(true);
       try {
-        const res = await api('bron', { yosh: state.age, mavsum: season.name });
+        const res = await api('bron', { yosh: state.age, mavsum: season.name, chegirma: offer ? offer.foiz : 0 });
         state.code = String(res.code || '').slice(0, 12) || state.code || demoCode();
         state.booked = true;
+        state.foiz = offer ? offer.foiz : 0;
         save();
         track('Lead');
         track('Schedule', { content_name: 'joy band qilish' });
@@ -699,7 +726,7 @@
       renderAges();
       updateBar();
       if (!fresh) return;
-      live.textContent = 'Joy band qilindi. Chegirmangiz ' + MAX + '%';
+      live.textContent = 'Joy band qilindi' + (state.foiz ? '. Chegirmangiz ' + state.foiz + '%' : '');
       try { card.scrollIntoView({ block: 'start', behavior: reduceMotion ? 'auto' : 'smooth' }); } catch (e) { card.scrollIntoView(true); }
       const h = $('#t-done');
       h.setAttribute('tabindex', '-1');
@@ -829,17 +856,19 @@
     if (DEMO) $('#demo').hidden = false; // заявки не уходят (demo: true или нет endpoint) — видно сразу
     initPixel();
     bindAll();
-    // Таймер: раз в секунду. Когда дата прошла — тексты сами переключаются на «набор на сезон».
+    // Таймер: раз в секунду. Дата скидки наступила — страница сама переходит к следующей скидке
+    // (или к цене без скидки), даже если родитель держит её открытой.
     function tick() {
-      const t = timeLeft();
-      if (Boolean(t) !== timerOn) {
-        timerOn = Boolean(t);
+      const next = findOffer();
+      if (next !== offer) {
+        offer = next;
         bindAll();
       }
+      const t = timeLeft();
       if (t) $$('[data-timer]').forEach((el) => { el.textContent = t; });
     }
     tick();
-    if (deadline) setInterval(tick, 1000);
+    if (OFFERS.length) setInterval(tick, 1000);
     if (state.phone && !state.booked) phoneInput.value = phoneFmt(state.phone);
     if (state.booked) showDone(false);
     track('ViewContent', { content_name: 'bron sahifasi' });
