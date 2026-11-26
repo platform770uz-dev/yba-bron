@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Yosh Blogerlar Akademiyasi — joyni band qiling</title>
+  <meta name="description" content="Farg‘onadagi bolalar blogerlik kursi: ravon nutq, video olish, Reels va internetda xavfsizlik. Joyni band qiling — 20% gacha chegirma.">
+  <meta name="theme-color" content="#f5f5f7">
+  <meta name="color-scheme" content="light">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="uz_UZ">
+  <meta property="og:title" content="Yosh Blogerlar Akademiyasi · Farg‘ona">
+  <meta property="og:description" content="Farzandingiz uchun offlayn blogerlik kursi. Joyni band qiling — 20% gacha chegirma.">
+  <!-- После публикации проверьте адрес картинки (имя репозитория на GitHub) -->
+  <meta property="og:image" content="https://platform770uz-dev.github.io/yba-bron/assets/img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="preload" as="image" href="assets/img/markaz.jpg">
+  <!-- ?v= меняйте при каждом обновлении сайта, чтобы у родителей не осталась старая версия из кэша -->
+  <link rel="stylesheet" href="assets/style.css?v=5">
+  <script src="config.js?v=5"></script>
+  <script src="assets/app.js?v=5" defer></script>
+</head>
+<body>
+  <!-- Иконки -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 1 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2.5"/><path d="M16 10.5l5-3v9l-5-3z"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="16" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 3.5h2.6l1.4 4-2 1.4a12 12 0 0 0 6.5 6.5l1.4-2 4 1.4v2.6a2 2 0 0 1-2.2 2A16.6 16.6 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l4.5-1 10-10a2.1 2.1 0 0 0-3-3l-10 10z"/><path d="M14 7l3 3"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 1 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><path d="M9 4.5l-5 2v13l5-2 6 2 5-2v-13l-5 2z"/><path d="M9 4.5v13M15 6.5v13"/></symbol>
+  </svg>
+
+  <div class="demo" id="demo" hidden>Demo · narx va jadval — namuna, arizalar yuborilmaydi</div>
+
+  <header class="nav">
+    <div class="nav-in">
+      <div class="brand">
+        <span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6.5v11l9-5.5z"/></svg></span>
+        <span class="brand-text"><b>Yosh Blogerlar Akademiyasi</b><small>Farg‘ona · offlayn kurs</small></span>
+      </div>
+      <div class="ring" id="meter" role="progressbar" aria-label="Chegirmangiz" aria-valuemin="0" aria-valuemax="20" aria-valuenow="0">
+        <svg viewBox="0 0 44 44" aria-hidden="true"><circle class="ring-track" cx="22" cy="22" r="19"/><circle class="ring-prog" id="ring-prog" cx="22" cy="22" r="19"/></svg>
+        <span class="ring-val" aria-hidden="true"><span id="disc">0</span>%</span>
+        <span class="ring-toast" id="toast" aria-hidden="true"></span>
+      </div>
+    </div>
+    <p class="nav-hint" id="hint">Har qadamda chegirma oshadi</p>
+  </header>
+
+  <main class="app">
+    <!-- 1. Kurs haqida -->
+    <section class="step" data-step="intro" aria-labelledby="t-intro" hidden>
+      <figure class="photo">
+        <img src="assets/img/markaz.jpg" width="900" height="900" alt="Akademiya hovlisida intervyu: o‘quvchi bola va boshlovchi" fetchpriority="high">
+        <figcaption class="badge"><svg class="i"><use href="#i-pin"/></svg>Farg‘ona · haqiqiy dars kadri</figcaption>
+      </figure>
+      <p class="eyebrow">Bolalar uchun blogerlik kursi</p>
+      <h1 id="t-intro">Farzandingiz kamera oldida ishonch bilan gapirishni o‘rganadi</h1>
+      <p class="lead">Farg‘onadagi offlayn akademiya: ravon nutq, video olish va internetda xavfsizlik — amaliy darslarda.</p>
+      <ul class="list">
+        <li><span class="sq orange"><svg class="i"><use href="#i-mic"/></svg></span><div><b>Ravon nutq</b><span class="sub">maxsus ilovada tez aytish mashqlari</span></div></li>
+        <li><span class="sq blue"><svg class="i"><use href="#i-video"/></svg></span><div><b>Amaliy darslar</b><span class="sub">suratga olish, intervyu, Reels</span></div></li>
+        <li><span class="sq green"><svg class="i"><use href="#i-shield"/></svg></span><div><b>Internetda xavfsizlik</b><span class="sub">izohlar va parol — ota-ona bilan birga</span></div></li>
+      </ul>
+      <p class="note"><svg class="i"><use href="#i-check"/></svg>Reklamadagi videolar — markazimizdagi haqiqiy darslardan olingan.</p>
+    </section>
+
+    <!-- 2. Dastur -->
+    <section class="step" data-step="dastur" aria-labelledby="t-dastur" hidden>
+      <div class="photos">
+        <figure><img src="assets/img/dastur-1.jpg" width="600" height="800" loading="lazy" alt="O‘quvchi ilovada tez aytish mashqini bajarmoqda"><figcaption class="badge">Tez aytish mashqi</figcaption></figure>
+        <figure><img src="assets/img/dastur-2.jpg" width="600" height="800" loading="lazy" alt="«Zamonaviy Kasblar Kids» ilovasida tez aytish matni"><figcaption class="badge">Ilova tekshiradi</figcaption></figure>
+      </div>
+      <p class="eyebrow">Dastur</p>
+      <h2 id="t-dastur">Farzandingiz nimalarni o‘rganadi</h2>
+      <ul class="list">
+        <li><span class="sq orange"><svg class="i"><use href="#i-mic"/></svg></span><div><b>Ravon nutq</b><span class="sub">«Zamonaviy Kasblar Kids» ilovasida tez aytish: G‘–O‘, Q–K, Sh–Ch, R–S–X. Ilova har bir urinishni eshitib tekshiradi.</span></div></li>
+        <li><span class="sq blue"><svg class="i"><use href="#i-video"/></svg></span><div><b>Kamera oldida gapirish</b><span class="sub">intervyu va video mashqlari</span></div></li>
+        <li><span class="sq pink"><svg class="i"><use href="#i-play"/></svg></span><div><b>Video va Reels</b><span class="sub">suratga olish, sarlavha, heshteg va muqova</span></div></li>
+        <li><span class="sq green"><svg class="i"><use href="#i-shield"/></svg></span><div><b>Xavfsizlik</b><span class="sub">izohlarga to‘g‘ri javob va kuchli parol</span></div></li>
+      </ul>
+      <h3>Har bir darsda</h3>
+      <ul class="list">
+        <li><span class="sq indigo"><svg class="i"><use href="#i-pen"/></svg></span><div><b>5 ta amaliy topshiriq</b><span class="sub">har bir bolaga 0–5 ball — natija ko‘rinib turadi</span></div></li>
+        <li><span class="sq teal"><svg class="i"><use href="#i-bell"/></svg></span><div><b>Ota-onaga Telegram xabar</b><span class="sub">darsga keldi, uy vazifasi, haftalik natija</span></div></li>
+      </ul>
+    </section>
+
+    <!-- 3. Darslar va narx -->
+    <section class="step" data-step="narx" aria-labelledby="t-narx" hidden>
+      <div class="photos">
+        <figure><img src="assets/img/dars-1.jpg" width="600" height="800" loading="lazy" alt="O‘quvchi qiz darsda yozma topshiriq bajarmoqda"><figcaption class="badge">Yozma topshiriq</figcaption></figure>
+        <figure><img src="assets/img/dars-2.jpg" width="600" height="800" loading="lazy" alt="O‘quvchi sinfxonada ilova bilan mashq qilmoqda"><figcaption class="badge">Sinfxonada</figcaption></figure>
+      </div>
+      <p class="eyebrow">Format va narx</p>
+      <h2 id="t-narx">Darslar qanday o‘tadi</h2>
+      <dl class="list kv">
+        <div data-row="joy"><dt>Qayerda</dt><dd data-bind="joy"></dd></div>
+        <div data-row="mavsumFasl"><dt>Mavsum</dt><dd data-bind="mavsumFasl"></dd></div>
+        <div data-row="davomiylik"><dt>Davomiyligi</dt><dd data-bind="davomiylik"></dd></div>
+        <div data-row="jadval"><dt>Qachon</dt><dd data-bind="jadval"></dd></div>
+        <div data-row="guruh"><dt>Guruh</dt><dd data-bind="guruh"></dd></div>
+        <div data-row="yosh"><dt>Yosh</dt><dd data-bind="yosh"></dd></div>
+      </dl>
+      <div class="price" data-row="narx">
+        <div class="price-top"><span>Birinchi oy</span><span class="pill-green">−<span data-bind="dMax">20%</span> bron bilan</span></div>
+        <div class="price-main"><strong data-bind="narxMax"></strong><s data-bind="narx"></s></div>
+        <p class="price-note">Chegirma birinchi oy uchun · mavsum boshlanguncha amal qiladi</p>
+      </div>
+      <h3>Qanday boshlanadi</h3>
+      <ol class="list numbered">
+        <li><div><b>Yosh va raqamni qoldirasiz</b><span class="sub">joy band bo‘ladi, chegirma <span data-bind="dMax">20%</span><span data-when="no-payme">. Hozir to‘lov shart emas</span></span></div></li>
+        <li><div><b>Menejer qo‘ng‘iroq qiladi</b><span class="sub">guruh vaqtini tasdiqlaydi va to‘lovni kelishib oladi</span></div></li>
+      </ol>
+      <h3>Savollar</h3>
+      <div class="list faq">
+        <details><summary>Farzandim uyatchan. Uddalay oladimi?</summary><p>Kurs aynan nutq va o‘ziga ishonch mashqlaridan boshlanadi. Birinchi uchrashuvda farzandingiz bilan tanishamiz — uning imkoniyatini o‘zingiz ko‘rasiz.</p></details>
+        <details><summary>Turmush o‘rtog‘im bilan maslahatlashishim kerak</summary><p>Albatta. Joyni band qilsangiz, chegirma saqlanib turadi. Birinchi uchrashuvga ikkalangiz birga kelishingiz mumkin.</p></details>
+        <details><summary>Dars vaqti to‘g‘ri kelmasa-chi?</summary><p>Menejer qo‘ng‘iroq qilganda qulay kun va vaqtni ayting — mos variant bor-yo‘qligini birga ko‘rib chiqamiz.</p></details>
+        <details><summary>Bron qilish majburiyatmi?</summary>
+          <p data-when="no-payme">Yo‘q. Bron — joy va chegirmani saqlab qo‘yish. To‘lov menejer bilan gaplashgandan keyin.</p>
+          <p data-when="payme">Bron — joy va chegirmani saqlab qo‘yish. Xohlasangiz, <span data-bind="paymeSum">100 000 so‘m</span> to‘lab joyni kafolatlashingiz mumkin — bu summa birinchi oy to‘lovidan ayiriladi.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- 4. Bron: faqat yosh va telefon -->
+    <section class="step" data-step="bron" aria-labelledby="t-bron" hidden>
+      <p class="eyebrow first" data-bind="bronEyebrow">Oxirgi qadam</p>
+      <h2 id="t-bron">Joyni band qiling</h2>
+      <p class="lead">Faqat ikki narsa: farzandingiz yoshi va telefon raqamingiz.</p>
+      <form id="bron-form" novalidate>
+        <p class="field-label" id="age-label">Farzandingiz yoshi</p>
+        <div class="segmented" id="age" role="radiogroup" aria-labelledby="age-label"></div>
+        <label class="field-label" for="phone">Telefon raqamingiz</label>
+        <div class="phone">
+          <span class="cc">+998</span>
+          <input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="90 123 45 67" aria-invalid="false">
+        </div>
+        <input type="text" id="hp" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p id="form-error" class="error" role="alert" hidden></p>
+        <p class="fine"><svg class="i"><use href="#i-lock"/></svg><span><span data-when="no-payme">Hozir to‘lov shart emas. </span>Raqamingiz faqat siz bilan bog‘lanish uchun ishlatiladi.</span></p>
+        <button type="submit" class="sr-only" tabindex="-1">Joyni band qilish</button>
+      </form>
+    </section>
+
+    <!-- 5. Rahmat -->
+    <section class="step" data-step="rahmat" aria-labelledby="t-rahmat" hidden>
+      <div class="done-icon">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30"/><path d="M19.5 33l8.5 8.5 16.5-18"/></svg>
+      </div>
+      <h2 id="t-rahmat" class="center">Joy band qilindi</h2>
+      <p class="lead center">Chegirmangiz — <b><span data-bind="dMax">20%</span></b>, birinchi oy uchun.</p>
+
+      <div class="pass">
+        <div class="pass-head">
+          <span class="logo light" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6.5v11l9-5.5z"/></svg></span>
+          <b>Yosh Blogerlar Akademiyasi</b>
+          <span>Farg‘ona</span>
+        </div>
+        <div class="pass-code"><span>Bron raqami</span><b data-bind="code"></b></div>
+        <div class="pass-grid">
+          <div><span>Farzand yoshi</span><b data-bind="age"></b></div>
+          <div data-row="mavsum"><span>Mavsum</span><b data-bind="mavsum"></b></div>
+          <div data-row="narx"><span>Birinchi oy</span><b data-bind="narxMax"></b></div>
+          <div><span>Telefon</span><b data-bind="phone"></b></div>
+        </div>
+      </div>
+
+      <div class="payme-box" id="payme-box" data-when="payme">
+        <b>Joyni kafolatlang</b>
+        <p>Bron to‘lovi — <span data-bind="paymeSum">100 000 so‘m</span>. Bu summa birinchi oy to‘lovidan ayiriladi.</p>
+        <button type="button" class="btn-pay" id="pay-btn">Payme orqali to‘lash</button>
+        <p class="fine" id="pay-status" role="status" hidden></p>
+      </div>
+
+      <ul class="list">
+        <li><span class="sq blue"><svg class="i"><use href="#i-phone"/></svg></span><div><b>Menejer qo‘ng‘iroq qiladi</b><span class="sub">ish vaqtida: <span data-bind="ishVaqti"></span>. Guruh vaqti va to‘lovni tasdiqlaydi.</span></div></li>
+        <li data-row="manzil"><span class="sq red"><svg class="i"><use href="#i-pin"/></svg></span><div><b data-bind="manzil"></b><a class="sub link-blue" id="map-link" href="#" target="_blank" rel="noopener" hidden>Xaritada ochish</a></div></li>
+      </ul>
+
+      <p class="fine center">Chegirmani unutmaslik uchun bu sahifani skrinshot qilib qo‘ying.</p>
+      <p class="center"><button type="button" class="link" id="reread">Kurs haqida qayta o‘qish</button></p>
+    </section>
+
+    <footer class="foot">Yosh Blogerlar Akademiyasi · Farg‘ona</footer>
+  </main>
+
+  <div class="bar" id="cta">
+    <div class="bar-in">
+      <button type="button" class="btn-back" id="btn-back" aria-label="Orqaga" hidden><svg class="i"><use href="#i-left"/></svg></button>
+      <button type="button" class="btn-main" id="btn-main">
+        <span class="spinner" hidden></span>
+        <span class="btn-label">Davom etish</span>
+        <span class="gain" hidden></span>
+      </button>
+    </div>
+  </div>
+
+  <p id="live" class="sr-only" aria-live="polite"></p>
+  <noscript><p class="noscript">Sahifa ishlashi uchun brauzerda JavaScript yoqilgan bo‘lishi kerak.</p></noscript>
+</body>
+</html>
