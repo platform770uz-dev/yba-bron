@@ -44,7 +44,9 @@ window.SAYT_CONFIG = {
   aloqaTelefon: '', // номер для связи, если интернет подвёл, например '+998 90 123 45 67'
 
   // Meta Pixel: ID из Events Manager (только цифры). Пусто — пиксель не подключается.
-  metaPixelId: '',
+  // Набор данных «Yosh Blogerlar — sayt bron» (создан 26.11.2026, рекламный аккаунт 990220910032937).
+  // Сайт отправляет: PageView, ViewContent (открыл страницу), Lead и Schedule (оставил номер). Телефоны в Meta не уходят.
+  metaPixelId: '1120906227506860',
 
   // Оплата брони через Payme. Включать, когда касса заработает (и в функции секрет SAYT_PAYME=on).
   payme: { enabled: false, summa: 100000 },
