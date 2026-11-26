@@ -20,9 +20,9 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link rel="preload" as="image" href="assets/img/markaz.jpg">
   <!-- ?v= меняйте при каждом обновлении сайта, чтобы у родителей не осталась старая версия из кэша -->
-  <link rel="stylesheet" href="assets/style.css?v=6">
-  <script src="config.js?v=6"></script>
-  <script src="assets/app.js?v=6" defer></script>
+  <link rel="stylesheet" href="assets/style.css?v=7">
+  <script src="config.js?v=7"></script>
+  <script src="assets/app.js?v=7" defer></script>
 </head>
 <body>
   <!-- Иконки -->
@@ -40,6 +40,7 @@
     <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l4.5-1 10-10a2.1 2.1 0 0 0-3-3l-10 10z"/><path d="M14 7l3 3"/></symbol>
     <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 1 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></symbol>
     <symbol id="i-map" viewBox="0 0 24 24"><path d="M9 4.5l-5 2v13l5-2 6 2 5-2v-13l-5 2z"/><path d="M9 4.5v13M15 6.5v13"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 19.5h16"/><path d="M5 15l4-4 3 3 6-6"/><path d="M14 8h4v4"/></symbol>
   </svg>
 
   <div class="demo" id="demo" hidden>Demo · narx va jadval — namuna, arizalar yuborilmaydi</div>
@@ -66,8 +67,15 @@
         <img src="assets/img/markaz.jpg" width="900" height="900" alt="Akademiya hovlisida intervyu: o‘quvchi bola va boshlovchi" fetchpriority="high">
         <figcaption class="badge"><svg class="i"><use href="#i-pin"/></svg>Farg‘ona · haqiqiy dars kadri</figcaption>
       </figure>
-      <p class="eyebrow">Bolalar uchun blogerlik kursi</p>
+      <p class="eyebrow">Bolalar uchun bloging + matematika kursi</p>
       <h1 id="t-intro">Farzandingiz kamera oldida ishonch bilan gapirishni o‘rganadi</h1>
+      <!-- Главная особенность курса (из скрипта операторов: «блогинг с интеграцией математики», математика — в задачах блогера + школьные темы).
+           Стоит сразу под заголовком, чтобы была видна на первом экране телефона. -->
+      <div class="combo">
+        <p class="combo-tag">Bizning o‘ziga xosligimiz</p>
+        <p class="combo-title"><span>Bloging</span><span class="combo-plus">+</span><span>matematika</span></p>
+        <p class="combo-text">Bitta kursda: farzandingiz blog yuritadi va matematikani bloger masalalari orqali o‘rganadi — ko‘rishlar soni, foizlar, statistika, o‘sish grafiklari. Maktab dasturidagi mavzular ham o‘tiladi.</p>
+      </div>
       <p class="lead">Farg‘onadagi offlayn akademiya: ravon nutq, video olish va internetda xavfsizlik — amaliy darslarda.</p>
       <ul class="list">
         <li><span class="sq orange"><svg class="i"><use href="#i-mic"/></svg></span><div><b>Ravon nutq</b><span class="sub">maxsus ilovada tez aytish mashqlari</span></div></li>
@@ -89,6 +97,7 @@
         <li><span class="sq orange"><svg class="i"><use href="#i-mic"/></svg></span><div><b>Ravon nutq</b><span class="sub">«Zamonaviy Kasblar Kids» ilovasida tez aytish: G‘–O‘, Q–K, Sh–Ch, R–S–X. Ilova har bir urinishni eshitib tekshiradi.</span></div></li>
         <li><span class="sq blue"><svg class="i"><use href="#i-video"/></svg></span><div><b>Kamera oldida gapirish</b><span class="sub">intervyu va video mashqlari</span></div></li>
         <li><span class="sq pink"><svg class="i"><use href="#i-play"/></svg></span><div><b>Video va Reels</b><span class="sub">suratga olish, sarlavha, heshteg va muqova</span></div></li>
+        <li><span class="sq indigo"><svg class="i"><use href="#i-chart"/></svg></span><div><b>Bloger matematikasi</b><span class="sub">ko‘rishlar, foizlar, statistika va o‘sish grafiklari — hamda maktab dasturidagi mavzular</span></div></li>
         <li><span class="sq green"><svg class="i"><use href="#i-shield"/></svg></span><div><b>Xavfsizlik</b><span class="sub">izohlarga to‘g‘ri javob va kuchli parol</span></div></li>
       </ul>
       <h3>Har bir darsda</h3>
